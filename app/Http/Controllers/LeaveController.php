@@ -49,4 +49,18 @@ class LeaveController extends Controller
         $header = 'History Leave';
         return view('leave.history_leave', compact('title', 'header'));
     }
+
+
+    public function leaveBalancePage() {
+        $title = 'Leave Balance | HRIS';
+        $header = 'Leave Balance';
+        return view('leave.leave_balance', compact('title', 'header'));
+    }
+
+    public function leaveInfoPage()
+    {
+        $title = 'Leave Info | HRIS';
+        $header = 'Leave Info';
+        return view('leave.leave_info', compact('title', 'header'));
+    }
 }

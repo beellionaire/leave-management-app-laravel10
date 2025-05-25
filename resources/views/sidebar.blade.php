@@ -51,26 +51,35 @@
 
         </li>
 
-        <li class="sidebar-item  has-sub @if(isset($active_leave)){{ $active_leave }} @endif">
+        {{-- Jika admin login --}}
+        @if (Auth::user()->role == 'Admin')
+        <li class="sidebar-item has-sub @if(isset($active_leave)){{ $active_leave }} @endif">
           <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
             <span>Time Management</span>
           </a>
-
-          <ul class="submenu ">
-
-            <li class="submenu-item  ">
-              <a href={{ route('leave.index') }} class="submenu-link">Leave Management</a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a href="{{ route('leave.index') }}" class="submenu-link">Leave Management</a>
             </li>
-
-            <li class="submenu-item  ">
-              <a href="component-alert.html" class="submenu-link">Alert</a>
-            </li>
-
           </ul>
-
-
         </li>
+        @endif
+
+        {{-- Jika pegawai login --}}
+        @if (Auth::user()->role == 'Pegawai')
+        <li class="sidebar-item has-sub @if(isset($active_leave)){{ $active_leave }} @endif">
+          <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
+            <span>Time Management</span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a href="{{ route('leave.leaveInfoPage') }}" class="submenu-link">Request Leave</a>
+            </li>
+          </ul>
+        </li>
+        @endif
 
       </ul>
     </div>

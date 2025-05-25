@@ -8,9 +8,7 @@
     <div class="card-header">
 
       <div class="mt-4 d-flex gap-2">
-        <a type="button" href={{ route('leave.setLeavePage') }} class="btn btn-success">Create Leave</a>
-        <a type="button" href={{ route('leave.assignUpdatePage') }} class="btn btn-primary">Assign or Update</a>
-        <a type="button" href={{ route('leave.historyPage') }} class="btn btn-light">History Leave</a>
+        <button class="btn btn-success">Export</button>
       </div>
 
     </div>
@@ -35,25 +33,26 @@
 
       </div>
 
-      <table class="table table-striped" id="table1">
+      <table class="table table-striped" id="balanceTable">
         <thead>
           <tr>
-            <th>Policy Name</th>
-            <th>Code</th>
-            <th>Effective Data</th>
-            <th>Expired Date</th>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Balance</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Graiden</td>
-            <td>1</td>
             <td>076 4820 8838</td>
-            <td> - </td>
-            <td class="text-center"><a href={{ route('leave.leaveBalancePage') }}><i class="fa fa-bars"></i></a></td>
+            <td>1</td>
+            <td class="text-center">
+              <button class="btn">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+              </button>
+            </td>
           </tr>
-
         </tbody>
       </table>
 
@@ -84,7 +83,6 @@
               <a class="page-link" href="#">Next</a>
             </li>
           </ul>
-          </>
 
         </div>
       </div>
@@ -93,8 +91,6 @@
   </div>
 
 </section>
-
-
 
 
 @endsection

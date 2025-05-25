@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {{--
-  <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ $title }}</title>
 
@@ -21,6 +21,10 @@
   <link rel="stylesheet" href="/assets/compiled/css/app.css">
   <link rel="stylesheet" href="/assets/compiled/css/app-dark.css">
   <link rel="stylesheet" href="assets/extensions/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
 
 </head>
 
@@ -43,70 +47,90 @@
               aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse gap-3" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto mb-lg-0">
-
+                <li class="nav-item dropdown me-1">
+                  <a class="nav-link active text-gray-600" href={{ route('message.requestLeavePage') }}>
+                    <i class='bi bi-envelope bi-sub fs-4'></i>
+                    <!-- <span class="badge badge-notification bg-danger">1</span> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li>
+                      <h6 class="dropdown-header">Mail</h6>
+                    </li>
+                    <li><a class="dropdown-item" href="#">No new mail</a></li>
+                  </ul> -->
+                </li>
+                <!-- <li class="nav-item dropdown me-3">
+                  <a class="nav-link active dropdown-toggle text-gray-600" href="#" data-bs-toggle="dropdown"
+                    data-bs-display="static" aria-expanded="false">
+                    <i class='bi bi-bell bi-sub fs-4'></i>
+                    <span class="badge badge-notification bg-danger">7</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end notification-dropdown"
+                    aria-labelledby="dropdownMenuButton">
+                    <li class="dropdown-header">
+                      <h6>Notifications</h6>
+                    </li>
+                    <li class="dropdown-item notification-item">
+                      <a class="d-flex align-items-center" href="#">
+                        <div class="notification-icon bg-primary">
+                          <i class="bi bi-cart-check"></i>
+                        </div>
+                        <div class="notification-text ms-4">
+                          <p class="notification-title font-bold">Successfully check out</p>
+                          <p class="notification-subtitle font-thin text-sm">Order ID #256</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="dropdown-item notification-item">
+                      <a class="d-flex align-items-center" href="#">
+                        <div class="notification-icon bg-success">
+                          <i class="bi bi-file-earmark-check"></i>
+                        </div>
+                        <div class="notification-text ms-4">
+                          <p class="notification-title font-bold">Homework submitted</p>
+                          <p class="notification-subtitle font-thin text-sm">Algebra math homework</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <p class="text-center py-2 mb-0"><a href="#">See all notification</a></p>
+                    </li>
+                  </ul>
+                </li> -->
               </ul>
               <div class="dropdown">
-
                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{-- <div class="user-menu d-flex">
-
+                  <div class="user-menu d-flex">
                     <div class="user-name text-end me-3">
-                      @if (Auth::user()->role == 'Guru' || Auth::user()->role == 'Admin')
-                      <h6 class="mb-0 text-gray-600">{{ $userx->name }}</h6>
-                      <p class="mb-0 text-sm text-gray-600">{{ $userx->role }}</p>
-                      @endif
-                      @if (Auth::user()->role == 'Siswa')
-                      <h6 class="mb-0 text-gray-600">{{ $userx->nama_siswa }}</h6>
-                      <p class="mb-0 text-sm text-gray-600">{{ $userx->role }}</p>
-                      @endif
+                      <h6 class="mb-0 text-gray-600">John Ducky</h6>
+                      <p class="mb-0 text-sm text-gray-600">Administrator</p>
                     </div>
-
                     <div class="user-img d-flex align-items-center">
                       <div class="avatar avatar-md">
-                        @if (Auth::user()->role == 'Guru' || Auth::user()->role == "Admin")
-                        <img src="/images/user/{{ $userx->foto }}">
-                        @endif
-                        @if (Auth::user()->role == 'Siswa')
-                        <img src="/images/siswa/{{ $userx->foto_siswa }}">
-                        @endif
+                        <img src="./assets/compiled/jpg/1.jpg">
                       </div>
                     </div>
-
-                  </div> --}}
+                  </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
                   style="min-width: 11rem;">
-
-                  {{-- <li>
-                    @if (Auth::user()->role == 'Guru' || Auth::user()->role == 'Admin')
-                    <h6 class="dropdown-header">Hello, {{ $userx->name }}</h6>
-                    @endif
-                    @if (Auth::user()->role == 'Siswa')
-                    <h6 class="dropdown-header">Hello, {{ $userx->nama_siswa }}</h6>
-                    @endif
-                  </li> --}}
-
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My Profile</a></li>
-
+                  <li>
+                    <h6 class="dropdown-header">Hello, John!</h6>
+                  </li>
+                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
+                      Profile</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
+                      Settings</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
+                      Wallet</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-
-                  {{-- <li>
-                    @if (Auth::user()->role == 'Guru' || Auth::user()->role == 'Admin')
-                    <a class="dropdown-item" href="/logout"><i class="icon-mid bi bi-box-arrow-left me-2"></i>
-                      Logout</a>
-                    @endif
-
-                    @if (Auth::user()->role == 'Siswa')
-                    <a class="dropdown-item" href="/logoutSiswa"><i class="icon-mid bi bi-box-arrow-left me-2"></i>
-                      Logout</a>
-                    @endif
-
-                  </li> --}}
-
+                  <li><a class="dropdown-item" href={{ route('logout') }}><i
+                        class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -143,7 +167,7 @@
 
     </div>
 
-    
+
 
   </div>
 
@@ -160,8 +184,11 @@
 
   <script src="/assets/extensions/sweetalert2/sweetalert2.min.js"></script>
   <script src="/assets/js/pages/sweetalert2.js"></script>
+    <!-- Need: Apexcharts -->
+  <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/static/js/pages/dashboard.js"></script>
 
-  {{-- @if (session('success'))
+  @if (session('success'))
   <script>
     Swal.fire({
       icon: "success",
@@ -179,9 +206,9 @@
       text: "{{ session('error') }}"
     })
   </script>
-  @endif --}}
+  @endif
 
-  
+
 
 </body>
 
