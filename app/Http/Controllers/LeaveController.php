@@ -10,8 +10,8 @@ class LeaveController extends Controller
     {
         $title = 'Leave Management | HRIS';
         $header = 'Leave Management';
-        $active_leave = 'active';
-        return view('leave.index', compact('title', 'header', 'active_leave'));
+        // $active_leave = 'active';
+        return view('leave.index', compact('title', 'header'));
     }
 
     public function setLeavePage()
@@ -51,7 +51,8 @@ class LeaveController extends Controller
     }
 
 
-    public function leaveBalancePage() {
+    public function leaveBalancePage()
+    {
         $title = 'Leave Balance | HRIS';
         $header = 'Leave Balance';
         return view('leave.leave_balance', compact('title', 'header'));

@@ -25,12 +25,12 @@ class AuthController extends Controller
             $user = Auth::user();
 
             if ($user->role === 'Admin') {
-                return redirect('/dashboard')->with('success', 'Login Admin Berhasil');
+                return redirect('/dashboard')->with('success', 'Selamat Datang' . " " . $user->name);
             } elseif ($user->role === 'Pegawai') {
-                return redirect('/dashboard')->with('success', 'Login Pegawai Berhasil');
+                return redirect('/dashboard')->with('success', 'Selamat Datang' . " " . $user->name);
             } else {
                 Auth::logout();
-                return redirect('/')->with('error', 'Role tidak dikenali');
+                return redirect('/')->with('error', 'Anda tidak memiliki akses ke halaman ini');
             }
         }
 

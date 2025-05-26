@@ -56,6 +56,17 @@
         <li class="sidebar-item has-sub @if(isset($active_leave)){{ $active_leave }} @endif">
           <a href="#" class='sidebar-link'>
             <i class="bi bi-stack"></i>
+            <span>Employees</span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a href="{{ route('employee.index') }}" class="submenu-link">Employee List</a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-item has-sub @if(isset($active_leave)){{ $active_leave }} @endif">
+          <a href="#" class='sidebar-link'>
+            <i class="bi bi-stack"></i>
             <span>Time Management</span>
           </a>
           <ul class="submenu">

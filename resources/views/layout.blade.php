@@ -103,28 +103,23 @@
               <div class="dropdown">
                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                   <div class="user-menu d-flex">
+                    @if (Auth::user()->role == 'Admin' || Auth::user()->role == 'Pegawai')
                     <div class="user-name text-end me-3">
-                      <h6 class="mb-0 text-gray-600">John Ducky</h6>
-                      <p class="mb-0 text-sm text-gray-600">Administrator</p>
+                      <h6 class="mb-0 text-gray-600">{{ Auth::user()->name }}</h6>
+                      <p class="mb-0 text-sm text-gray-600">{{ Auth::user()->role }}</p>
                     </div>
+                    @endif
                     <div class="user-img d-flex align-items-center">
                       <div class="avatar avatar-md">
-                        <img src="./assets/compiled/jpg/1.jpg">
+                        <img src="/assets/compiled/jpg/1.jpg">
                       </div>
                     </div>
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
                   style="min-width: 11rem;">
-                  <li>
-                    <h6 class="dropdown-header">Hello, John!</h6>
-                  </li>
                   <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
                       Profile</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
-                      Settings</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
-                      Wallet</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -184,7 +179,7 @@
 
   <script src="/assets/extensions/sweetalert2/sweetalert2.min.js"></script>
   <script src="/assets/js/pages/sweetalert2.js"></script>
-    <!-- Need: Apexcharts -->
+  <!-- Need: Apexcharts -->
   <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
   <script src="assets/static/js/pages/dashboard.js"></script>
 
@@ -192,7 +187,8 @@
   <script>
     Swal.fire({
       icon: "success",
-      title: "Success",
+      title: "Welcome",
+      timer: 2000,
       text: "{{ session('success') }}"
     })
   </script>
@@ -203,6 +199,7 @@
     Swal.fire({
       icon: "error",
       title: "Error",
+      timer: 2000,
       text: "{{ session('error') }}"
     })
   </script>
